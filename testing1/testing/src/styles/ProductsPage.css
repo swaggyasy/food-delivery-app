@@ -1,0 +1,421 @@
+/* 
+  Modern & Clean Stylesheet for Products Page
+  Author: Gemini AI
+  Date: 2024-07-16
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #4A90E2;
+  --primary-hover: #357ABD;
+  --text-dark: #2D3748;
+  --text-light: #64748B;
+  --background-light: #F7FAFC;
+  --border-color: #E2E8F0;
+  --white: #FFFFFF;
+  --danger-color: #E53E3E;
+  --success-color: #38A169;
+}
+
+.products-page {
+  padding: 2rem 1.5rem;
+  background-color: var(--background-light);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Header & Filtering --- */
+.products-header {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.search-bar {
+  position: relative;
+  flex-grow: 1;
+  max-width: 450px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #9FB3C8;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+.category-filter {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  background-color: var(--white);
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.category-btn:hover {
+  background-color: #F0F4F8;
+  color: var(--text-dark);
+}
+
+.category-btn.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+/* --- Product Grid & Cards --- */
+.products-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+}
+
+.product-image {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.08);
+}
+
+.category-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-info h3 {
+  margin: 0 0 0.5rem;
+  color: var(--text-dark);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.product-description {
+  color: var(--text-light);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.product-price {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.product-price span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* --- The "Perfect" Modal --- */
+.product-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 55, 72, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.product-modal {
+  background: var(--white);
+  border-radius: 1.5rem; /* Softer corners */
+  width: 100%;
+  max-width: 850px; /* Optimal reading width */
+  max-height: 90vh;
+  display: flex;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden; /* Important for border-radius */
+}
+
+.modal-image {
+  flex: 0 0 50%;
+  background-color: #f0f0f0;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info {
+  flex: 1 1 50%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--background-light);
+  border: 1px solid var(--border-color);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-light);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  background: var(--danger-color);
+  color: var(--white);
+  border-color: var(--danger-color);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.modal-info h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+.modal-description {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.modal-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 0.5rem;
+  width: fit-content;
+}
+
+.quantity-controls button {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  transition: all 0.2s ease-in-out;
+}
+
+.quantity-controls button:hover:not(:disabled) {
+  background: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.quantity-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-controls input {
+  width: 50px;
+  height: 38px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.customization-section {
+  margin-bottom: 2rem;
+}
+
+.customization-section label {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.customization-section textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  min-height: 100px;
+  resize: vertical;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.customization-section textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+.add-to-cart-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+}
+
+/* --- Other States --- */
+.loading, .no-products {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-light);
+  font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 850px) {
+  .product-modal {
+    flex-direction: column;
+    max-height: 85vh;
+  }
+  
+  .modal-image, .modal-info {
+    flex: 1 1 100%;
+  }
+
+  .modal-image {
+    height: 300px;
+  }
+
+  .modal-info {
+    padding: 2rem;
+  }
+
+  .modal-info h2 {
+    font-size: 2rem;
+  }
+}

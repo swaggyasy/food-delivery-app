@@ -1,0 +1,139 @@
+.driver-location-test {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.driver-location-test h3 {
+  margin: 0 0 12px 0;
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.driver-location-test p {
+  margin: 0 0 20px 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.test-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.test-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.random-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.random-btn:hover {
+  background: #2563eb;
+}
+
+.start-btn {
+  background: #10b981;
+  color: white;
+}
+
+.start-btn:hover {
+  background: #059669;
+}
+
+.stop-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.stop-btn:hover {
+  background: #dc2626;
+}
+
+.current-location-display {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.current-location-display h4 {
+  margin: 0 0 12px 0;
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #374151;
+}
+
+.location-info svg {
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.coordinates {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+
+.test-info {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.test-info h4 {
+  margin: 0 0 12px 0;
+  color: #92400e;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.test-info ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #92400e;
+  font-size: 0.9rem;
+}
+
+.test-info li {
+  margin-bottom: 8px;
+}
+
+.test-info li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .test-controls {
+    flex-direction: column;
+  }
+  
+  .test-btn {
+    width: 100%;
+    justify-content: center;
+  }
+} 

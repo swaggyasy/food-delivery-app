@@ -1,0 +1,723 @@
+/* IMPORTANT: This class controls the outer white area of the order tracking card */
+.order-tracking-container {
+  background: #ffffff;
+  border-radius: 20px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 12px 0 !important;
+  max-width: 480px !important;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+}
+
+/* Header */
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tracking-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tracking-title svg {
+  width: 24px;
+  height: 24px;
+  color: #3B82F6;
+}
+
+.tracking-title h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff !important;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Status Progress */
+.status-progress {
+  margin-bottom: 24px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, #1D4ED8);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.current-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #3B82F6;
+}
+
+.status-icon {
+  font-size: 18px;
+}
+
+.status-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Delivery Estimate */
+.delivery-estimate {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #fef3c7;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #fbbf24;
+}
+
+.delivery-estimate svg {
+  width: 20px;
+  height: 20px;
+  color: #d97706;
+}
+
+.estimate-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.estimate-time {
+  font-size: 16px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.estimate-label {
+  font-size: 14px;
+  color: #a16207;
+}
+
+/* Delivery Person */
+.delivery-person {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  background: #f0f9ff;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  border: 1px solid #0ea5e9;
+}
+
+.driver-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.driver-avatar {
+  width: 28px;
+  height: 28px;
+  background: #0ea5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.driver-avatar svg {
+  width: 24px;
+  height: 24px;
+}
+
+.driver-details h4 {
+  margin: 0 0 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0c4a6e;
+}
+
+.driver-details p {
+  margin: 0;
+  font-size: 11px;
+  color: #0369a1;
+}
+
+.driver-actions {
+  display: flex;
+  align-items: center; /* Prevent vertical stretching */
+  justify-content: flex-end; /* Or center, as desired */
+  gap: 8px;
+  flex-wrap: nowrap; /* Prevent wrapping/stretching */
+}
+
+.action-btn {
+  flex: 0 0 auto !important;
+  width: 90px !important; /* Restore previous width */
+  height: 40px !important; /* Restore previous height */
+  aspect-ratio: unset !important; /* Remove forced 1/1 ratio */
+  border-radius: 24px !important; /* Restore pill/oval shape */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden !important;
+}
+
+.action-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 8px;
+}
+
+/* Map */
+.tracking-map {
+  margin-bottom: 24px;
+}
+
+.map-error-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  text-align: center;
+  min-height: 200px;
+}
+
+.map-error-icon {
+  width: 48px;
+  height: 48px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.map-error-fallback h4 {
+  margin: 0 0 8px 0;
+  color: #475569;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.map-error-fallback p {
+  margin: 0 0 20px 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.location-info {
+  background: #e2e8f0;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.map-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 2px dashed #cbd5e1;
+}
+
+.map-loading .loading-spinner {
+  width: 32px;
+  height: 32px;
+  color: #3b82f6;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.map-loading p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Timeline */
+.order-timeline {
+  margin-bottom: 24px;
+}
+
+.order-timeline h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.timeline-container {
+  position: relative;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  z-index: 1;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 4px 6px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.timeline-header h4 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.timeline-time {
+  font-size: 9px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.timeline-content p {
+  margin: 0 0 8px 0;
+  font-size: 10px;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.timeline-date {
+  font-size: 8px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Order Details */
+.order-details h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.detail-item {
+  padding: 4px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.detail-label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.detail-value {
+  display: block;
+  font-size: 14px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Loading and Error States */
+.tracking-loading,
+.tracking-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.tracking-loading svg {
+  width: 32px;
+  height: 32px;
+  color: #3b82f6;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.tracking-error svg {
+  width: 48px;
+  height: 48px;
+  color: #ef4444;
+  margin-bottom: 16px;
+}
+
+.tracking-loading p,
+.tracking-error p {
+  margin: 0 0 16px 0;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.tracking-error button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tracking-error button:hover {
+  background: #dc2626;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .order-tracking-container {
+    padding: 16px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-person {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .driver-actions {
+    justify-content: center;
+  }
+
+  .timeline-container::before {
+    left: 16px;
+  }
+
+  .timeline-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .order-tracking-container {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+
+  .tracking-title h2 {
+    color: #f9fafb;
+  }
+
+  .current-status {
+    background: #374151;
+    color: #f9fafb;
+  }
+
+  .delivery-estimate {
+    background: #451a03;
+    border-color: #f59e0b;
+  }
+
+  .delivery-person {
+    background: #0c4a6e;
+    border-color: #0ea5e9;
+  }
+
+  .timeline-content {
+    background: #374151;
+    color: #f9fafb;
+  }
+
+  .detail-item {
+    background: #374151;
+    border-color: #4b5563;
+  }
+
+  .detail-value {
+    color: #f9fafb;
+  }
+}
+
+/* Driver Status Section */
+.driver-status-section {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #e2e8f0;
+}
+
+.driver-status {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.status-indicator.assigned {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+.status-indicator.on_way {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #3b82f6;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.arrived {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+
+.status-indicator.delivered {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #16a34a;
+}
+
+.status-indicator svg {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.movement-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.moving-icon {
+  animation: bounce 1s infinite;
+}
+
+.eta-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #e0f2fe;
+  color: #0c4a6e;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* --- UNIFY BUTTON WIDTHS: Make all action/status buttons the same length --- */
+.action-btn,
+.status-btn,
+.track-btn,
+.update-location-btn,
+.change-status-btn {
+  width: 200px !important; /* Set a unified width for all main action buttons */
+  max-width: 100%;
+  min-width: 120px;
+  box-sizing: border-box;
+}
+
+/* Optionally, center the text and icon for consistency */
+.action-btn,
+.status-btn,
+.track-btn,
+.update-location-btn,
+.change-status-btn {
+  justify-content: center !important;
+  align-items: center !important;
+}
+/* --- END UNIFY BUTTON WIDTHS --- */
+
+/* --- FIX UPDATE LOCATION BUTTON ALIGNMENT --- */
+.update-location-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 24px !important; /* Consistent horizontal padding */
+  width: 200px !important;
+  height: 40px !important;
+  border-radius: 24px !important;
+  box-sizing: border-box;
+}
+
+.update-location-btn svg {
+  margin-right: 10px !important;
+  margin-left: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+  vertical-align: middle;
+}
+
+/* Remove extra margin from first child if present */
+.update-location-btn svg:first-child {
+  margin-left: 0 !important;
+}
+/* --- END FIX UPDATE LOCATION BUTTON ALIGNMENT --- */
+
+/* --- Make Update Location Button Slightly Wider --- */
+.update-location-btn {
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+  /* Keep other styles for alignment and shape */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 24px !important;
+  height: 40px !important;
+  border-radius: 24px !important;
+  box-sizing: border-box;
+}
+/* --- END Make Update Location Button Slightly Wider --- */
+
+/* --- Make Update Location Button Wider Using rem --- */
+.update-location-btn {
+  width: 18rem !important;
+  min-width: 18rem !important;
+  max-width: 18rem !important;
+  /* Keep other styles for alignment and shape */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 2rem !important;
+  height: 40px !important;
+  border-radius: 24px !important;
+  box-sizing: border-box;
+}
+/* --- END Make Update Location Button Wider Using rem --- */

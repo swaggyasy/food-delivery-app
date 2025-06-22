@@ -1,0 +1,70 @@
+.payment-success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f9f9f9;
+    padding: 2rem;
+  }
+  
+  .payment-status-box {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    border-top: 5px solid;
+  }
+  
+  .status-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .processing {
+    color: #f0ad4e;
+    animation: spin 2s linear infinite;
+  }
+  
+  .success {
+    color: #5cb85c;
+  }
+  
+  .error {
+    color: #d9534f;
+  }
+  
+  .payment-status-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .payment-status-box p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-support-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-support-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  } 
